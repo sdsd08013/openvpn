@@ -1,0 +1,6 @@
+client*
+ca.crt
+dh.pem
+server.crt
+server.key
+ta.key
