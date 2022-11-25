@@ -6,4 +6,4 @@ cd ./easy-rsa-3.0.1/easyrsa3
 ./easyrsa gen-dh
 openvpn --genkey --secret ta.key
 ./easyrsa gen-req $1
-./easyrsa sign-req $1 $2
+./easyrsa sign-req $2 $1
