@@ -21,7 +21,7 @@ WORKDIR /etc/openvpn
 RUN wget https://github.com/OpenVPN/easy-rsa/archive/3.0.1.tar.gz && tar xzvf 3.0.1.tar.gz && rm 3.0.1.tar.gz
 
 #COPY server.conf ca.crt dh.pem server.key server.crt ta.key setup_crt.sh ./
-COPY make_config.sh setup_crt.sh ./
-RUN chmod -R 755 ./setup_crt.sh
+COPY server.conf make_config.sh setup_crt.sh ./
+RUN chmod -R 755 ./setup_crt.sh && mkdir ca
 
 CMD ["openvpn", "server.conf"]
