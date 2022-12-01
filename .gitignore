@@ -4,3 +4,4 @@ dh.pem
 server.crt
 server.key
 ta.key
+crt/*
