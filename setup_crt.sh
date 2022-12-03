@@ -5,7 +5,7 @@ cd ./easy-rsa-3.0.1/easyrsa3
 ./easyrsa build-ca nopass
 ./easyrsa gen-dh
 openvpn --genkey --secret ta.key
-./easyrsa gen-req $1
+./easyrsa gen-req $1 nopass
 ./easyrsa sign-req $2 $1
 cp ./pki/dh.pem ../../crt/ca
 cp ./pki/ca.crt ../../crt/ca
