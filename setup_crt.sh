@@ -5,10 +5,12 @@ cd ./easy-rsa-3.0.1/easyrsa3
 ./easyrsa build-ca nopass
 ./easyrsa gen-dh
 openvpn --genkey --secret ta.key
-./easyrsa gen-req $1 nopass
-./easyrsa sign-req $2 $1
-cp ./pki/dh.pem ../../crt/ca
-cp ./pki/ca.crt ../../crt/ca
-cp ./ta.key ../../crt/ca
-cp ./pki/issued/sky-vpn.crt ../../crt/server
-cp ./pki/private/sky-vpn.key ../../crt/server
+# server cert
+echo "--------gen server crt----------"
+./easyrsa build-server-full server nopass
+# client cert
+# echo "--------gen client crt----------"
+./easyrsa build-client-full client nopass
+cp ./pki/dh.pem ./pki/ca.crt ./ta.key ../../crt/ca
+cp ./pki/issued/server.crt ./pki/private/server.key ../../crt/server
+cp ./pki/issued/client.crt ./pki/private/client.key ../../crt/client

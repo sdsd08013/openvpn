@@ -1,7 +1,7 @@
 #!/bin/bash
 
 KEY_DIR=./crt/ca
-SERVER_DIR=./crt/server
+SERVER_DIR=./crt/client
 OUTPUT_DIR=./crt/client
 BASE_CONFIG=./client.conf
 
