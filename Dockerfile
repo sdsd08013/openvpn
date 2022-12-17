@@ -21,7 +21,7 @@ WORKDIR /etc/openvpn
 RUN wget https://github.com/OpenVPN/easy-rsa/archive/3.0.1.tar.gz && tar xzvf 3.0.1.tar.gz && rm 3.0.1.tar.gz
 
 # https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy
-COPY server.conf client.conf setup_crt.sh make_config.sh ./
+COPY server.conf client.conf ./
 COPY ./bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/*
 

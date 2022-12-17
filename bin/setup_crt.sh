@@ -1,5 +1,9 @@
 #!bin/bash
 
+rm -rf ./crt/ca/*
+rm -rf ./crt/client/*
+rm -rf ./crt/server/*
+
 cd ./easy-rsa-3.0.1/easyrsa3
 ./easyrsa init-pki
 ./easyrsa build-ca nopass
