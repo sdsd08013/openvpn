@@ -4,6 +4,9 @@ rm -rf ./crt/ca/*
 rm -rf ./crt/client/*
 rm -rf ./crt/server/*
 
+cd ./crt
+wget https://github.com/OpenVPN/easy-rsa/archive/3.0.1.tar.gz && tar xzvf 3.0.1.tar.gz && rm 3.0.1.tar.gz
+
 cd ./easy-rsa-3.0.1/easyrsa3
 ./easyrsa init-pki
 ./easyrsa build-ca nopass
@@ -12,9 +15,5 @@ openvpn --genkey --secret ta.key
 # server cert
 echo "--------gen server crt----------"
 ./easyrsa build-server-full server nopass
-# client cert
-# echo "--------gen client crt----------"
-./easyrsa build-client-full client nopass
-cp ./pki/dh.pem ./pki/ca.crt ./ta.key ../../crt/ca
-cp ./pki/issued/server.crt ./pki/private/server.key ../../crt/server
-cp ./pki/issued/client.crt ./pki/private/client.key ../../crt/client
+cp ./pki/dh.pem ./pki/ca.crt ./ta.key ../../ca
+cp ./pki/issued/server.crt ./pki/private/server.key ../../server
