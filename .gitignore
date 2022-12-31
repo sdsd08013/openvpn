@@ -1,7 +1,4 @@
-client*
-ca.crt
-dh.pem
-server.crt
-server.key
-ta.key
+client/*
+client.conf
+server.conf
 crt/*
